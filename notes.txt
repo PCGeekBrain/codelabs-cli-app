@@ -1,8 +1,8 @@
 Steps
 
 1. User types code-labs
-2. User user is given list of Technolagies
-3. User enters Technolagy
+2. User user is given list of Technologies
+3. User enters Technology
 4. User sees detail of course
 
 Commands
@@ -11,3 +11,14 @@ Commands
 2. {number} -> takes user to that item on the menu
 3. list -> gives the current items on the menu
 4. exit -> closes the application
+
+Objects:
+
+Tech -> A specific Technology, with a list of connected Labs
+Lab -> A individual Lab
+    has:   
+        Title -> String
+        Duration -> String/"N/A"
+        link -> URL/String
+        Author -> String/"N/A"
+        Last_updated -> String/"N/A"
