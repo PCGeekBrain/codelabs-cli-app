@@ -22,11 +22,14 @@ class CodeLabs::Tech
     def self.all
         @@all
     end
+    def self.clear_all
+        @@all.clear
+    end
     def self.create(name)
         self.new(name).save
     end
     def self.find_or_create(name)
         res = @@all.detect{|tech| tech.name == name}
-        res ? res : self.new(name).save
+        res ? res : self.create(name)
     end
 end
