@@ -8,17 +8,17 @@ class CodeLabs::Lab
         @author = "N/A"
         @techs = []
         # Mass assignment
-        arguments.each {|key, value| self.send("#{key}=", value) unless value == "" || value.nil?}
+        arguments.each {|key, value| self.send("#{key}=", value) unless value == "" || value.nil?} # <- do not set the values if they are blank
     end
     def techs
         @techs.dup.freeze # <- freeze so we keep type integrity
     end
-    def add_tech(tech)
+    def add_tech(tech) # <- enforce type and relationships
         raise TypeError unless tech.is_a?(CodeLabs::Tech)
         @techs << tech
-        tech.add_lab(self) unless tech.labs.include?(self)
+        tech.add_lab(self) unless tech.labs.include?(self) # <- potenial infinte loop
     end
     def print_techs
-        @techs.collect{|tech| tech.name}.join(', ')
+        @techs.collect{|tech| tech.name}.join(', ') # <- Show all the related techs
     end
 end
