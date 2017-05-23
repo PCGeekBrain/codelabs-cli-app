@@ -6,7 +6,7 @@ require "code_labs/version"
 Gem::Specification.new do |spec|
   spec.name          = "code_labs"
   spec.version       = CodeLabs::VERSION
-  spec.authors       = ["Mendel Hornbacher"]
+  spec.authors       = ["Menachem Hornbacher"]
   spec.email         = ["me@mendel.tech"]
 
   spec.summary       = "Pulls and parses gems from Google CodeLabs"
