@@ -23,7 +23,11 @@ class CodeLabs::CLI
             when "tech"
                 list_techs
             when "exit"
-                puts "Have a great day!"
+                puts ""
+                puts "   Good                      ///"
+                puts "      Bye!                  (o o)"
+                puts "------------------------o00--( )--00o----"
+
             else
                 puts("\n¯\_(ツ)_/¯ \nSorry, I do not know what that means") unless input == 'exit' || input.to_i > 0
                 puts("(pst, try `1`)") if input.include?('number')
