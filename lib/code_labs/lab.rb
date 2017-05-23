@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 class CodeLabs::Lab
     attr_accessor :title, :duration, :link, :author, :last_updated
 

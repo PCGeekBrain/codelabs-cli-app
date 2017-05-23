@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 class CodeLabs::Tech
     @@all = []
     attr_reader :name
