@@ -1,4 +1,4 @@
-# redu
+
 class CodeLabs::Lab
     # A single Lab on the page
     #
