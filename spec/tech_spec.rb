@@ -49,5 +49,11 @@ RSpec.describe "Tech" do
             expect{tech.add_lab("Test")}.to raise_error(TypeError)
             expect{tech.add_lab(CodeLabs::Lab.new)}.to_not raise_error(TypeError)
         end
+        it "adds the tech to the lab" do
+            lab = CodeLabs::Lab.new
+            expect{tech.add_lab(lab)}.to_not raise_error(TypeError)
+            expect(tech.labs).to include(lab)
+            expect(lab.techs).to include(tech)
+        end
     end
 end

@@ -1,4 +1,4 @@
-
+require 'pry'
 class CodeLabs::Tech
     @@all = []
     attr_reader :name
@@ -17,6 +17,7 @@ class CodeLabs::Tech
     def add_lab(lab)
         raise TypeError unless lab.is_a?(CodeLabs::Lab)
         @labs << lab
+        lab.add_tech(self) unless lab.techs.include?(self)
     end
 
     def self.all
