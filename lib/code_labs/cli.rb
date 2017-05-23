@@ -1,5 +1,6 @@
 class CodeLabs::CLI
     def call
+        # Warning, looks half decent
         puts "\n----------------------------------------------"
         puts   "---------  Google CodeLabs Browsing CLI  -----"
         puts   "----------------------------------------------"
@@ -30,22 +31,13 @@ class CodeLabs::CLI
         end
     end
 
-    # get all the techs from the scraper and list them
+    # go back up to the techs
     def list_techs
-        # web = CodeLabs::Tech.find_or_create('Web')
-        # android = CodeLabs::Tech.find_or_create('Android')
-        # both  = CodeLabs::Lab.new
-        # web.add_lab(CodeLabs::Lab.new)
-        # web.add_lab(CodeLabs::Lab.new)
-        # web.add_lab(both)
-        # android.add_lab(CodeLabs::Lab.new)
-        # android.add_lab(both)
-        # Techs.all => [<Tech> <Tech>]
         @items = CodeLabs::Tech.all #set the array to the items the user can input
         list_items
     end
 
-    # this function will deal with picking an item
+    # This function will deal with picking an item
     def pick_item(index)
         item = @items[index]
         return puts("Can't seem to find that index :-(\n(pst, try 'list')") if item.nil? # check if the item is in the input list
@@ -76,13 +68,13 @@ class CodeLabs::CLI
     # handles the display of individual labs
     def print_lab(lab)
         puts ""
-        puts "----------- #{lab.title} -----------"
+        puts "-------------- #{lab.title} --------------"
         puts ""
-        puts "URL:              #{lab.link}"
-        puts "Time:             #{lab.duration}"
-        puts "Author(s):        #{lab.author}"
-        puts "Last updates:     #{lab.last_updated}"
-        puts "Technology:       #{lab.print_techs}"
+        puts "URL:                  #{lab.link}"
+        puts "Time:                 #{lab.duration}"
+        puts "Author(s):            #{lab.author}"
+        puts "Last updates:         #{lab.last_updated}"
+        puts "Technology Stack:     #{lab.print_techs}"
         puts ""
         puts ""
     end
