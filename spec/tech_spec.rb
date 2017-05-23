@@ -40,7 +40,6 @@ RSpec.describe "Tech" do
             expect(CodeLabs::Tech.all).to include(@tech)
         end
     end
-
     context "#add_lab" do
         let(:tech) {CodeLabs::Tech.new('Web')}
         it "labs are frozen" do
@@ -51,5 +50,4 @@ RSpec.describe "Tech" do
             expect{tech.add_lab(CodeLabs::Lab.new)}.to_not raise_error(TypeError)
         end
     end
-
 end
