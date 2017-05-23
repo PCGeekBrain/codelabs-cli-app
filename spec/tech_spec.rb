@@ -1,3 +1,5 @@
+RSpec::Expectations.configuration.on_potential_false_positives = :nothing
+
 RSpec.describe "Tech" do
     context "#initialize" do
         let(:tech) {CodeLabs::Tech.new('Web')}
@@ -45,7 +47,8 @@ RSpec.describe "Tech" do
             expect(tech.labs).to be_frozen
         end
         it "only takes lab objects" do
-            expect(tech.add_lab("Test")).to raise_error
+            expect{tech.add_lab("Test")}.to raise_error(TypeError)
+            expect{tech.add_lab(CodeLabs::Lab.new)}.to_not raise_error(TypeError)
         end
     end
 

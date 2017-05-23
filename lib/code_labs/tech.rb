@@ -15,7 +15,7 @@ class CodeLabs::Tech
         @labs.dup.freeze
     end
     def add_lab(lab)
-        # raise "Invalid Lab Type" unless lab.is_a?(Lab)
+        raise TypeError unless lab.is_a?(CodeLabs::Lab)
         @labs << lab
     end
 

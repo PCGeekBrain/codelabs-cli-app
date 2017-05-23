@@ -1,0 +1,2 @@
+class CodeLabs::Lab
+end
