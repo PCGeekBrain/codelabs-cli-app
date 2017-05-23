@@ -10,9 +10,8 @@ class CodeLabs::Lab
         # Mass assignment
         arguments.each {|key, value| self.send("#{key}=", value) unless value == "" || value.nil?}
     end
-
     def techs
-        @techs.dup.freeze
+        @techs.dup.freeze # <- freeze so we keep type integrity
     end
     def add_tech(tech)
         raise TypeError unless tech.is_a?(CodeLabs::Tech)

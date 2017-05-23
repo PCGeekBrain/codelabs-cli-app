@@ -16,7 +16,7 @@ class CodeLabs::Scraper
                 title: card.css('.description').text.split.join(" "), 
                 duration: card.css('.card-duration span').text,
                 link: @url + card['href'].split("?")[0], 
-                author: card.css('.card-author'),
+                author: card.css('.card-author').text,
                 last_updated: card.css('.card-updated').text[8..-1].strip
             })
             techs = card.get_attribute('data-category').split(",").each do |tech_name|
