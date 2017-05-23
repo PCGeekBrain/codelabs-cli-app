@@ -20,6 +20,6 @@ class CodeLabs::Lab
         tech.add_lab(self) unless tech.labs.include?(self)
     end
     def print_techs
-        @techs.collect{|tech| tech.name}.join(',')
+        @techs.collect{|tech| tech.name}.join(', ')
     end
 end

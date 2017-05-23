@@ -32,10 +32,12 @@ class CodeLabs::CLI
     def list_techs
         web = CodeLabs::Tech.find_or_create('Web')
         android = CodeLabs::Tech.find_or_create('Android')
+        both  = CodeLabs::Lab.new
         web.add_lab(CodeLabs::Lab.new)
         web.add_lab(CodeLabs::Lab.new)
-        web.add_lab(CodeLabs::Lab.new)
+        web.add_lab(both)
         android.add_lab(CodeLabs::Lab.new)
+        android.add_lab(both)
         # Techs.all => [<Tech> <Tech>]
         @items = CodeLabs::Tech.all #set the array to the items the user can input
         list_items
