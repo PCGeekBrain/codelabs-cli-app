@@ -1,29 +1,25 @@
 class CodeLabs::CLI
     def call
-        puts "-----------Google CodeLabs Browsing CLI-------"
+        puts "\n----------------------------------------------\n---------  Google CodeLabs Browsing CLI  -----\n----------------------------------------------"
         list_techs
         start
     end
 
+    # The function that handles user input
     def start
         input = 'y'
-        on_tech = false
-        while input != 'exit'
+        while input != 'exit' #untill the user types exit
             print "(tech/list/<number>/exit): "
             input = gets.strip.downcase
-
-            if input.to_i > 0
-                pick_item(input.to_i - 1)
+            pick_item(input.to_i - 1) if input.to_i > 0
+            case input
+            when "list"
+                list_items
+            when "tech"
+                list_techs
             else
-                case input
-                when "list"
-                    list_items
-                when "tech"
-                    list_techs
-                else
-                    puts("\n¯\_(ツ)_/¯ \nSorry, I do not know what that means") unless input == 'exit'
-                    puts("(pst, try a number like 1)") if input.include?('number')
-                end
+                puts("\n¯\_(ツ)_/¯ \nSorry, I do not know what that means") unless input == 'exit' || input.to_i > 0
+                puts("(pst, try `1`)") if input.include?('number') || input.to_i > 0
             end
         end
     end
@@ -42,6 +38,7 @@ class CodeLabs::CLI
         @items = CodeLabs::Tech.all #set the array to the items the user can input
         list_items
     end
+
     # this function will deal with picking an item
     def pick_item(index)
         item = @items[index]
@@ -54,6 +51,7 @@ class CodeLabs::CLI
         end
         #TODO handle different item types
     end
+
     # handles the proper formatting for the current list
     def list_items
         if @items[0].is_a?(CodeLabs::Tech)
@@ -64,7 +62,8 @@ class CodeLabs::CLI
             @items.each.with_index(1) {|lab, index| puts "#{index}. #{lab.title}" }
         end
     end
-    # handles printing a lab
+
+    # handles the display of individual labs
     def print_lab(lab)
         puts ""
         puts "----------- #{lab.title} -----------"
