@@ -1,5 +1,4 @@
 RSpec::Expectations.configuration.on_potential_false_positives = :nothing
-require 'pry'
 RSpec.describe "Lab" do
     let(:lab1) {CodeLabs::Lab.new({title: 'Title', duration:"15 min", link: "google.com", author: "bob", last_updated: "May 22, 2017"})}
     context "#initialize" do

@@ -8,7 +8,9 @@ class CodeLabs::Scraper
         @url = url
     end
     def scrape
+        puts "Loading data...."
         doc = Nokogiri::HTML(open(@url, {ssl_verify_mode: OpenSSL::SSL::VERIFY_NONE}))
+        puts "Parsing data...."
         doc.css('#cards a').each do |card|
             lab = CodeLabs::Lab.new({
                 title: card.css('.description').text.split.join(" "), 

@@ -1,6 +1,9 @@
 class CodeLabs::CLI
     def call
-        puts "\n----------------------------------------------\n---------  Google CodeLabs Browsing CLI  -----\n----------------------------------------------"
+        puts "\n----------------------------------------------"
+        puts   "---------  Google CodeLabs Browsing CLI  -----"
+        puts   "----------------------------------------------"
+        puts ""
         CodeLabs::Scraper.new.scrape # <- Scrapes the website
         list_techs # <- shows the initial results
         start # <- starts the CLI
@@ -18,6 +21,8 @@ class CodeLabs::CLI
                 list_items
             when "tech"
                 list_techs
+            when "exit"
+                puts "Have a great day!"
             else
                 puts("\n¯\_(ツ)_/¯ \nSorry, I do not know what that means") unless input == 'exit' || input.to_i > 0
                 puts("(pst, try `1`)") if input.include?('number')
@@ -57,10 +62,14 @@ class CodeLabs::CLI
     def list_items
         if @items[0].is_a?(CodeLabs::Tech)
             puts "\n------------------Pick A Tech-----------------"
+            puts ""
             @items.each.with_index(1) {|tech, index| puts "#{index}. #{tech.name}" }
+            puts ""
         elsif @items[0].is_a?(CodeLabs::Lab)
             puts "\n------------------Pick A Lab-----------------"
+            puts ""
             @items.each.with_index(1) {|lab, index| puts "#{index}. #{lab.title}" }
+            puts ""
         end
     end
 
