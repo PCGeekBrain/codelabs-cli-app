@@ -2,6 +2,8 @@
 
 A web scraper and CLI browser for all the Courses that google offers at https://codelabs.developers.google.com/
 
+RubyGems link -> https://rubygems.org/gems/code_labs
+
 ## Installation
 
 Add this line to your application's Gemfile:
