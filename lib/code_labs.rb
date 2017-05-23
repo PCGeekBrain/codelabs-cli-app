@@ -1,5 +1,2 @@
-require "code_labs/version"
-
-module CodeLabs
-  # Your code goes here...
-end
+require_relative "./code_labs/version"
+require_relative "./code_labs/cli"

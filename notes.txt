@@ -1,4 +1,13 @@
 Steps
 
-1. User types CodeLabs
-2. User
+1. User types code-labs
+2. User user is given list of Technolagies
+3. User enters Technolagy
+4. User sees detail of course
+
+Commands
+
+1. home -> takes user to main page
+2. {number} -> takes user to that item on the menu
+3. list -> gives the current items on the menu
+4. exit -> closes the application
