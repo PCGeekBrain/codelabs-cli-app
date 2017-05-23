@@ -8,7 +8,7 @@ class CodeLabs::Lab
         @author = "N/A"
         @techs = []
         # Mass assignment
-        arguments.each {|key, value| self.send("#{key}=", value)}
+        arguments.each {|key, value| self.send("#{key}=", value) unless value == "" || value.nil?}
     end
 
     def techs

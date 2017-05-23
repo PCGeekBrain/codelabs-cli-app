@@ -1,8 +1,9 @@
 class CodeLabs::CLI
     def call
         puts "\n----------------------------------------------\n---------  Google CodeLabs Browsing CLI  -----\n----------------------------------------------"
-        list_techs
-        start
+        CodeLabs::Scraper.new.scrape # <- Scrapes the website
+        list_techs # <- shows the initial results
+        start # <- starts the CLI
     end
 
     # The function that handles user input
@@ -19,21 +20,21 @@ class CodeLabs::CLI
                 list_techs
             else
                 puts("\n¯\_(ツ)_/¯ \nSorry, I do not know what that means") unless input == 'exit' || input.to_i > 0
-                puts("(pst, try `1`)") if input.include?('number') || input.to_i > 0
+                puts("(pst, try `1`)") if input.include?('number')
             end
         end
     end
 
     # get all the techs from the scraper and list them
     def list_techs
-        web = CodeLabs::Tech.find_or_create('Web')
-        android = CodeLabs::Tech.find_or_create('Android')
-        both  = CodeLabs::Lab.new
-        web.add_lab(CodeLabs::Lab.new)
-        web.add_lab(CodeLabs::Lab.new)
-        web.add_lab(both)
-        android.add_lab(CodeLabs::Lab.new)
-        android.add_lab(both)
+        # web = CodeLabs::Tech.find_or_create('Web')
+        # android = CodeLabs::Tech.find_or_create('Android')
+        # both  = CodeLabs::Lab.new
+        # web.add_lab(CodeLabs::Lab.new)
+        # web.add_lab(CodeLabs::Lab.new)
+        # web.add_lab(both)
+        # android.add_lab(CodeLabs::Lab.new)
+        # android.add_lab(both)
         # Techs.all => [<Tech> <Tech>]
         @items = CodeLabs::Tech.all #set the array to the items the user can input
         list_items
