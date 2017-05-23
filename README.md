@@ -1,8 +1,6 @@
 # CodeLabs
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/code_labs`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A web scraper and CLI browser for all the Courses that google offers at https://codelabs.developers.google.com/
 
 ## Installation
 
@@ -22,7 +20,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Command Line Interface
+
+`code-labs` should work just fine. Sadly I am on windows with Secure Boot and WSL limits Ruby to 1.9 wihout hacks. Please report an issue if this command does not work 
+    
+### Internal Modules
+
+There are 3 objects in the `CodeLabs::` namespace
+1. Lab <- Stores data about the individual codelab
+2. Tech <- A specific technolagy refrenced in the lab. Contains two way links to all labs it applies to
+3. Scraper <- This object is given a URL (defaults to https://codelabs.developers.google.com/) in case it changes. Call scrape to load the Tech and Lab Objects into memory
 
 ## Development
 
