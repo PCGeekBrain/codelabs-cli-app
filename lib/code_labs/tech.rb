@@ -1,5 +1,15 @@
 # require 'pry'
 class CodeLabs::Tech
+    # A peice of tech covered in the lab
+    #
+    # Example:
+    #   CodeLabs::Tech.new(name) <- does not add to .all
+    #   CodeLabs::Tech.create(name) <- does add to .all
+    #   CodeLabs::Tech.find_or_create(name) <- will return the tech if it exists or will return a new one
+    # 
+    # Arguments:
+    #   title, duration, link, author, last_updated
+
     @@all = [] # <- The manager
     attr_reader :name # <- for display, saves 2 lines
 

@@ -1,5 +1,15 @@
 # redu
 class CodeLabs::Lab
+    # A single Lab on the page
+    #
+    # Example:
+    #   CodeLabs::Lab.new
+    #   or
+    #   CodeLabs::Lab.new(args)
+    # 
+    # Arguments:
+    #   title, duration, link, author, last_updated
+    
     attr_accessor :title, :duration, :link, :author, :last_updated
 
     def initialize(arguments={})
